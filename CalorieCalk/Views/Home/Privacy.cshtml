@@ -4,5 +4,41 @@
 <h1>@ViewData["Title"]</h1>
 
 
-<p>Use this page to detail your site's privacy policy.</p>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- THE MAGIC BACKGROUND DIV -->
+<div id="magic-background"></div>
+
+
+<style>
+    /* Now that the project is building, we can safely override the body! */
+    body {
+        background: linear-gradient(-45deg, #000000, #2c003e, #6f00ff, #000000) !important;
+        background-size: 400% 400% !important;
+        animation: mixPaint 12s ease infinite !important;
+        color: white !important;
+    }
+
+    /* We keep the double @@ so Razor C# doesn't crash */
+    @@keyframes mixPaint {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* This keeps the text inside your calculator card dark so you can read it */
+    .calculator-text {
+        color: #212529 !important;
+    }
+</style>
 

@@ -2,8 +2,70 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<style>
+    /* Now that the project is building, we can safely override the body! */
+    body {
+        background-image: linear-gradient(-69deg, #000000, #2c003e, #6f00ff, #000000) !important;
+        background-size: 400% 400% !important;
+        animation: mixPaint 11s ease infinite !important;
+        color: white !important;
+    }
 
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    /* We keep the double @@ so Razor C# doesn't crash */
+    @@keyframes mixPaint {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* This keeps the text inside your calculator card dark so you can read it */
+    .calculator-text {
+        color: #212529 !important;
+    }
+</style>
+
+<div class="text-center mt-4">
+    <!-- Added a little text shadow so it pops against the dark background -->
+    <h1 class="display-4 fw-bold" style="text-shadow: 2px 2px 4px #000;">Calorie Calculator</h1>
+    <p style="text-shadow: 1px 1px 3px #000;">Enter your details below to calculate your daily caloric needs.</p>
+</div>
+
+<div class="container mt-4">
+    <!-- Wrapped your form in a Bootstrap card to make it look clean and professional -->
+    <div class="card shadow-lg p-4 bg-white rounded calculator-text" style="max-width: 600px; margin: auto;">
+        <form>
+            <div class="form-group mb-3">
+                <label for="age" class="fw-bold">Age</label>
+                <input type="number" class="form-control" id="age" placeholder="Enter age">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="gender" class="fw-bold">Gender</label>
+                <select class="form-control" id="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="weight" class="fw-bold">Weight (kg)</label>
+                <input type="number" class="form-control" id="weight" placeholder="Enter weight">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="height" class="fw-bold">Height (cm)</label>
+                <input type="number" class="form-control" id="height" placeholder="Enter height">
+            </div>
+
+            <button type="button" class="btn btn-primary w-100 fw-bold fs-5 mt-2">Calculate</button>
+        </form>
+    </div>
 </div>
